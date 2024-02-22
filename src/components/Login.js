@@ -1,8 +1,10 @@
+import { Flex } from '@chakra-ui/react';
+
 const Login = () => {
     return (
-        <div>
+        <Flex as="main" bg="gray" p={4}>
             <h1>Login</h1>
-        </div>
+        </Flex>
     );
 }
 

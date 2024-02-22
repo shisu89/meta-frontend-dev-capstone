@@ -1,8 +1,7 @@
 import React from 'react';
-import { ReactComponent as LogoSvg } from '../assets/images/Logo.svg';
 import { Flex, HStack, Link } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
-
+// import '../css/styles.css';
 
 const pages = ['Home', 'About', 'Menu', 'Reservations', 'Order Online', 'Login'];
 
@@ -21,11 +20,9 @@ const NavigationItems = () => {
 const Nav = () => {
     return (
         <nav>
-            <Flex as="nav" justifyContent="center" p="4" >
-                <HStack spacing={12}>
-                    <LogoSvg></LogoSvg>
-                    <NavigationItems></NavigationItems>
-                </HStack>
+            <Flex as="nav" justifyContent="center" p="4" flexDir={{ base: "column", md: "row" }} alignItems={"center"}>
+                <img src="./assets/images/Logo.svg" alt='logo' />
+                <NavigationItems></NavigationItems>
             </Flex>
         </nav>
     );

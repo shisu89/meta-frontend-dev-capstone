@@ -1,11 +1,10 @@
+import { Flex } from '@chakra-ui/react';
+
 const About = () => {
     return (
-        <div>
-        <h1>About</h1>
-        <p>
-            This is a simple restaurant website built with React and Chakra UI.
-        </p>
-        </div>
+        <Flex as="main" bg="gray" p={4}>
+            <h1>About</h1>
+        </Flex>
     );
-    }
+}
 export default About;

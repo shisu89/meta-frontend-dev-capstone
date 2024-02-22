@@ -17,16 +17,8 @@ const App = () => {
     <>
       <ChakraProvider>
         <Router>
-          <head>
-            <title>Little Lemon</title>
-            <meta name="title" content="Little Lemon"/>
-            <meta name="description" content="Little Lemon restaurant website"/>
-            <meta name="og:image" content='../assets/images/Logo.svg'/>
-
-          </head>
-          <Nav />
           <Header />
-          <Box as="main" m={6}>
+          <Box as="main">
             <Routes>
               <Route path="/" element={<Main />} />
               <Route path="/about" element={<About />} />

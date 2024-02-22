@@ -1,8 +1,11 @@
+import { Flex } from '@chakra-ui/react';
+
 const Menu = () => {
   return (
-    <div>
+    <Flex as="main" bg="gray" p={4}>
       <h1>Menu</h1>
-    </div>
+
+    </Flex>
   );
 }
 
