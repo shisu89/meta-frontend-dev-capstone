@@ -4,7 +4,7 @@ import { NavigationItems } from './Nav';
 const Footer = () => {
     return (
         <Flex bg="#EDEFEE" color="#333333" as='footer' justifyContent={"center"} flexDirection={{ base: "column", md: "row" }} alignItems={{ base: "center", md: "start" }}>
-            <Box p={4}>
+            <Box p={4} transform={{base: "translateY(+10%)", md: "translateY(+50%)"}}>
                 <img src="./assets/images/Logo.svg" alt="Logo" />
             </Box>
             <VStack p={4} spacing={0} align={{ base: "center", md: "start" }}>

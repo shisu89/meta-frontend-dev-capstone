@@ -8,16 +8,24 @@ import Menu from './components/Menu';
 import Reservations from './components/Reservations';
 import OrderOnline from './components/OrderOnline';
 import Login from './components/Login';
-import { Box, ChakraProvider } from '@chakra-ui/react';
+import { Box, ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+
+const theme = extendTheme({
+  fonts: {
+    heading: 'Markazi Text, serif',
+    body: 'Karla, sans-serif',
+  },
+  }
+);
 
 const App = () => {
   return (
     <>
-      <ChakraProvider>
+      <ChakraProvider theme={theme}>
         <Router>
-          <Header />
+          <Header></Header>
           <Box as="main">
             <Routes>
               <Route path="/" element={<Main />} />
