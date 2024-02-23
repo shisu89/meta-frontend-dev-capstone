@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Image, Flex, HStack, Link } from '@chakra-ui/react';
+import { Box, Image, Flex, Link, Button } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import { useMediaQuery } from '@chakra-ui/react';
 // import '../css/styles.css';

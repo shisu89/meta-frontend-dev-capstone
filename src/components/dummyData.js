@@ -51,13 +51,13 @@ const reviews = [
       "The food was amazing and the service was great. I would definitely recommend this place to anyone who loves Mediterranean food.",
     profilePicture: "./assets/images/portraits/jill_doe.png",
   },
-  {
-    name: "Jack Doe",
-    rating: 4,
-    review:
-      "The food was great and the service was amazing. I would definitely recommend this place to anyone who loves Mediterranean food.",
-    profilePicture: "./assets/images/portraits/jack_doe.png",
-  },
+  // {
+  //   name: "Jack Doe",
+  //   rating: 4,
+  //   review:
+  //     "The food was great and the service was amazing. I would definitely recommend this place to anyone who loves Mediterranean food.",
+  //   profilePicture: "./assets/images/portraits/jack_doe.png",
+  // },
 ];
 
 export { menuItems, reviews };

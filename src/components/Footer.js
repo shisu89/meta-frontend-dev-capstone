@@ -1,4 +1,4 @@
-import { Flex, Box, Text, Link, VStack, HStack } from '@chakra-ui/react';
+import { Flex, Box, Text, Link, VStack } from '@chakra-ui/react';
 import { NavigationItems } from './Nav';
 
 const Footer = () => {
