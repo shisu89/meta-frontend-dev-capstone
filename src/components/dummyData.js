@@ -32,9 +32,9 @@ const reviews = [
   },
   {
     name: "Jane Doe",
-    rating: 4,
+    rating: 5,
     review:
-      "The food was great, but the service was a bit slow. I would still recommend this place to anyone who loves Mediterranean food.",
+      "The food was great, and the service could not have been better. I would highly recommend this place to anyone who loves Mediterranean food.",
     profilePicture: "./assets/images/portraits/jane_doe.png",
   },
   {

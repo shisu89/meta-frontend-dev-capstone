@@ -33,17 +33,17 @@ const BookingForm = () => {
                 <Box justifyContent={"center"} textAlign={"center"} m={4}>
                     <Form>
                         <Box>
-                            <Heading fontWeight={"regular"}>Please fill up the booking form</Heading>
+                            <Heading fontWeight={"regular"}>Looking to join us? Book a table!</Heading>
                         </Box>
 
                         <FormControl m={2} isRequired={true}>
                             <FormLabel>Date</FormLabel>
-                            <Field as={Input} type="date" name="date" bg="#EDEFEE"></Field>
+                            <Field as={Input} type="date" name="date" bg="#EDEFEE" color="#333333"></Field>
                             <ErrorMessage name="date" component="div" style={{ color: 'red' }} />
                         </FormControl>
                         <FormControl m={2} isRequired={true}>
                             <FormLabel>Time</FormLabel>
-                            <Field as={Select} type="time" name="time" bg="#EDEFEE">
+                            <Field as={Select} type="time" name="time" bg="#EDEFEE" color="#333333">
                                 <option value="">Select a time</option>
                                 {Array.from({ length: 11 }, (_, index) => {
                                     const hour = 17 + Math.floor(index / 2);
@@ -57,12 +57,12 @@ const BookingForm = () => {
                         </FormControl>
                         <FormControl m={2} isRequired={true}>
                             <FormLabel>Number of guests</FormLabel>
-                            <Field as={Input} type="number" min="1" max="10" name="guests" bg="#EDEFEE"></Field>
+                            <Field as={Input} type="number" min="1" max="10" name="guests" bg="#EDEFEE" color="#333333" placeholder={'How many persons?'}></Field>
                             <ErrorMessage name="guests" component="div" style={{ color: 'red' }} />
                         </FormControl>
                         <FormControl m={2} isRequired={false}>
                             <FormLabel>Occasion</FormLabel>
-                            <Field as={Select} type="text" name="occasion" bg="#EDEFEE">
+                            <Field as={Select} type="text" name="occasion" bg="#EDEFEE" color="#333333">
                                 <option value="">Select an occasion</option>
                                 <option value="birthday">Birthday</option>
                                 <option value="anniversary">Anniversary</option>
@@ -97,7 +97,7 @@ const BookingForm = () => {
 const Reservations = () => {
     return (
         <>
-            <Box as="main" bg="#FBDABB" color="#333333">
+            <Box as="main" bg="#495E57" color="#EDEFEE">
                 <Flex justifyContent={"center"} as="section" >
                     <BookingForm></BookingForm>
                 </Flex>

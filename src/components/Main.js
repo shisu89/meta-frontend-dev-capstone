@@ -103,7 +103,7 @@ const Testimonials = () => {
 
 const ChicagoBranch = () => {
     return (
-        <Flex as="section" bg="#333333" p={8} justifyContent={"space-evenly"} flexDirection={{ base: "column", md: "row" }} alignItems={"center"}>
+        <Flex as="section" bg="#333333" p={16} justifyContent={"space-evenly"} flexDirection={{ base: "column", md: "row" }} alignItems={"center"}>
             <VStack spacing={4} align={"left"} width={{base: "auto", md: "400px"}} textAlign={"left"}>
                 <Heading fontSize={64} color="#F4CE14" fontWeight={"regular"}>Little Lemon</Heading>
                 <Heading fontSize={40} color="#EDEFEE" fontWeight={"regular"}>Chicago</Heading>

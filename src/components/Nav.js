@@ -13,9 +13,13 @@ const BurgerMenu = () => {
         setIsOpen(!isOpen);
     };
 
+    const closeMenu = () => {
+        setIsOpen(false);
+    };
+
     return (
         <>
-            <Box position="relative"> {/* Add this wrapper */}
+            <Box position="relative" zIndex={1000}> {/* Add this wrapper */}
                 <button onClick={handleToggle}>
                     <Image src="./assets/images/icons/icon_hamburger_menu.svg"></Image>
                 </button>
@@ -34,6 +38,7 @@ const BurgerMenu = () => {
                                 to={page === 'Home' ? '/' : `/${page.replace(' ', '').toLowerCase()}`}
                                 key={page}
                                 py={2}
+                                onClick={closeMenu}
                             >
                                 {page}
                             </Link>
