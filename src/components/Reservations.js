@@ -1,17 +1,10 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { VStack, Box, HStack, Flex, Heading, Button } from '@chakra-ui/react';
+import { Box, Flex, Heading, Button, FormControl, FormLabel, Input, Select } from '@chakra-ui/react';
 
 
 const BookingForm = () => {
-    const [formData, setFormData] = React.useState({
-        date: '',
-        time: '',
-        guests: '',
-        occasion: '',
-    });
-
     const initialValues = {
         date: '',
         time: '',
@@ -27,15 +20,7 @@ const BookingForm = () => {
     });
 
     const handleSubmit = (values) => {
-        // Handle form submission
         console.log(values);
-    };
-
-    const handleChange = (e) => {
-        setFormData((prevState) => ({
-            ...prevState,
-            [e.target.name]: e.target.value,
-        }));
     };
 
     return (
@@ -44,53 +29,60 @@ const BookingForm = () => {
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
         >
-            <Form>
-                <VStack>
-                    <Heading fontWeight={"regular"}>Please fill up the booking form</Heading>
-                    <HStack>
-                        <label htmlFor="date">Date</label>
-                        <Field
-                            type="date"
-                            id="date"
-                            name="date"
-                            value={formData.date}
-                            onChange={handleChange}
-                        />
-                        <ErrorMessage name="date" component="div" style={{ color: 'red' }} />
-                    </HStack>
-                    <HStack>
-                        <label htmlFor="time">Time</label>
-                        <Field as="select" id="time" name="time" >
-                            <option value={formData.time} onChange={handleChange}>Select a time</option>
-                            {Array.from({ length: 11 }, (_, index) => {
-                                const hour = 17 + Math.floor(index / 2);
-                                const minute = index % 2 === 0 ? '00' : '30';
-                                const time = `${hour}:${minute}`;
-                                return <option key={time} value={time}>{time}</option>;
-                            })}
-                        </Field>
-                        <ErrorMessage name="time" component="div" style={{ color: 'red' }} />
-                    </HStack>
+            {formik => (
+                <Box justifyContent={"center"} textAlign={"center"} m={4}>
+                    <Form>
+                        <Box>
+                            <Heading fontWeight={"regular"}>Please fill up the booking form</Heading>
+                        </Box>
 
-                    <HStack>
-                        <label htmlFor="guests">Number of guests</label>
-                        <Field type="number" id="guests" name="guests" min="1" max="10" value={formData.guests} onChange={handleChange} />
-                        <ErrorMessage name="guests" component="div" style={{ color: 'red' }} />
-                    </HStack>
+                        <FormControl isRequired={true}>
+                            <FormLabel>Date</FormLabel>
+                            <Field as={Input} type="date" name="date"></Field>
+                            <ErrorMessage name="date" component="div" style={{ color: 'red' }} />
+                        </FormControl>
+                        <FormControl isRequired={true}>
+                            <FormLabel>Time</FormLabel>
+                            <Field as={Input} type="time" name="time"></Field>
+                            <ErrorMessage name="time" component="div" style={{ color: 'red' }} />
+                        </FormControl>
+                        <FormControl isRequired={true}>
+                            <FormLabel>Number of guests</FormLabel>
+                            <Field as={Input} type="number" min="1" max="10" name="guests"></Field>
+                            <ErrorMessage name="guests" component="div" style={{ color: 'red' }} />
+                        </FormControl>
+                        <FormControl isRequired={false}>
+                            <FormLabel>Occasion</FormLabel>
+                            <Field as={Select} type="text" name="occasion">
+                                <option value="">Select an occasion</option>
+                                <option value="birthday">Birthday</option>
+                                <option value="anniversary">Anniversary</option>
+                            </Field>
+                            {/* <ErrorMessage name="occasion" component="div" style={{ color: 'red' }} /> */}
+                        </FormControl>
+                        {/* <Box>
+                            <label htmlFor="time">Time</label>
+                            <Field as="select" id="time" name="time" >
+                                <option value={formData.time} onChange={handleChange}>Select a time</option>
+                                {Array.from({ length: 11 }, (_, index) => {
+                                    const hour = 17 + Math.floor(index / 2);
+                                    const minute = index % 2 === 0 ? '00' : '30';
+                                    const time = `${hour}:${minute}`;
+                                    return <option key={time} value={time}>{time}</option>;
+                                })}
+                            </Field>
 
-                    <HStack>
-                        <label htmlFor="occasion">Occasion</label>
-                        <Field as="select" id="occasion" name="occasion" value={formData.occasion} onChange={handleChange}>
-                            <option value="">Select an occasion</option>
-                            <option value="birthday">Birthday</option>
-                            <option value="anniversary">Anniversary</option>
-                        </Field>
-                        <ErrorMessage name="occasion" component="div" style={{ color: 'red' }} />
-                    </HStack>
-                    <Button type="submit" bg='#F4CE14'>Make your Reservation</Button>
-                </VStack>
-            </Form>
-        </Formik>
+                            <label htmlFor="occasion">Occasion</label>
+                            <Field as="select" id="occasion" name="occasion" value={formData.occasion} onChange={handleChange}>
+                                <option value="">Select an occasion</option>
+                                <option value="birthday">Birthday</option>
+                                <option value="anniversary">Anniversary</option>
+                            </Field>*/}
+                        <Button type="submit" bg='#F4CE14' isLoading={formik.isSubmitting}>Make your Reservation</Button>
+                    </Form>
+                </Box >
+            )}
+        </Formik >
     );
 };
 
