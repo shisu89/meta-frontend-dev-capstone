@@ -2,9 +2,11 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { Box, Flex, Heading, Button, FormControl, FormLabel, Input, Select } from '@chakra-ui/react';
+import { bookingSlots } from './constants'
 
 
-const BookingForm = () => {
+const BookingForm = ({ onFormSubmit }) => {
+
     const initialValues = {
         date: '',
         time: '',
@@ -19,7 +21,9 @@ const BookingForm = () => {
         occasion: Yup.string().required('Occasion is required'),
     });
 
-    const handleSubmit = (values) => {
+    const handleSubmit = (values, { setSubmitting }) => {
+        onFormSubmit(values);
+        setSubmitting(false);
         console.log(values);
     };
 
@@ -33,7 +37,7 @@ const BookingForm = () => {
                 <Box justifyContent={"center"} textAlign={"center"} m={4}>
                     <Form>
                         <Box>
-                            <Heading fontWeight={"regular"}>Looking to join us? Book a table!</Heading>
+                            <Heading fontWeight={"regular"}>Craving Delicious Food? Book Now!</Heading>
                         </Box>
 
                         <FormControl m={2} isRequired={true}>
@@ -45,19 +49,21 @@ const BookingForm = () => {
                             <FormLabel>Time</FormLabel>
                             <Field as={Select} type="time" name="time" bg="#EDEFEE" color="#333333">
                                 <option value="">Select a time</option>
-                                {Array.from({ length: 11 }, (_, index) => {
-                                    const hour = 17 + Math.floor(index / 2);
-                                    const minute = index % 2 === 0 ? '00' : '30';
-                                    const time = `${hour}:${minute}`;
-                                    return <option key={time} value={time}>{time}</option>;
+                                {bookingSlots.map((slot, index) => {
+                                    return <option key={index} value={slot}>{slot}</option>;
                                 })}
-
                             </Field>
                             <ErrorMessage name="time" component="div" style={{ color: 'red' }} />
                         </FormControl>
                         <FormControl m={2} isRequired={true}>
                             <FormLabel>Number of guests</FormLabel>
-                            <Field as={Input} type="number" min="1" max="10" name="guests" bg="#EDEFEE" color="#333333" placeholder={'How many persons?'}></Field>
+                            {/* <Field as={Input} type="number" min="1" max="10" name="guests" bg="#EDEFEE" color="#333333" placeholder={'How many persons?'}></Field> */}
+                            <Field as={Select} type="number" name="guests" bg="#EDEFEE" color="#333333">
+                                <option value="">Select number of guests</option>
+                                {Array.from({ length: 10 }, (_, index) => {
+                                    return <option key={index + 1} value={index + 1}>{index + 1}</option>;
+                                })}
+                            </Field>
                             <ErrorMessage name="guests" component="div" style={{ color: 'red' }} />
                         </FormControl>
                         <FormControl m={2} isRequired={false}>
@@ -68,24 +74,6 @@ const BookingForm = () => {
                                 <option value="anniversary">Anniversary</option>
                             </Field>
                         </FormControl>
-                        {/* <Box>
-                            <label htmlFor="time">Time</label>
-                            <Field as="select" id="time" name="time" >
-                                <option value={formData.time} onChange={handleChange}>Select a time</option>
-                                {Array.from({ length: 11 }, (_, index) => {
-                                    const hour = 17 + Math.floor(index / 2);
-                                    const minute = index % 2 === 0 ? '00' : '30';
-                                    const time = `${hour}:${minute}`;
-                                    return <option key={time} value={time}>{time}</option>;
-                                })}
-                            </Field>
-
-                            <label htmlFor="occasion">Occasion</label>
-                            <Field as="select" id="occasion" name="occasion" value={formData.occasion} onChange={handleChange}>
-                                <option value="">Select an occasion</option>
-                                <option value="birthday">Birthday</option>
-                                <option value="anniversary">Anniversary</option>
-                            </Field>*/}
                         <Button m={4} type="submit" bg='#F4CE14' isLoading={formik.isSubmitting}>Make your Reservation</Button>
                     </Form>
                 </Box >
@@ -94,16 +82,16 @@ const BookingForm = () => {
     );
 };
 
-const Reservations = () => {
+const Reservations = ({ onBookingSubmit }) => {
     return (
         <>
             <Box as="main" bg="#495E57" color="#EDEFEE">
                 <Flex justifyContent={"center"} as="section" >
-                    <BookingForm></BookingForm>
+                    <BookingForm onFormSubmit={onBookingSubmit}></BookingForm>
                 </Flex>
             </Box>
         </>
     );
 }
-
+export { BookingForm} ;
 export default Reservations;
