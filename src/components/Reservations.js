@@ -36,29 +36,37 @@ const BookingForm = () => {
                             <Heading fontWeight={"regular"}>Please fill up the booking form</Heading>
                         </Box>
 
-                        <FormControl isRequired={true}>
+                        <FormControl m={2} isRequired={true}>
                             <FormLabel>Date</FormLabel>
-                            <Field as={Input} type="date" name="date"></Field>
+                            <Field as={Input} type="date" name="date" bg="#EDEFEE"></Field>
                             <ErrorMessage name="date" component="div" style={{ color: 'red' }} />
                         </FormControl>
-                        <FormControl isRequired={true}>
+                        <FormControl m={2} isRequired={true}>
                             <FormLabel>Time</FormLabel>
-                            <Field as={Input} type="time" name="time"></Field>
+                            <Field as={Select} type="time" name="time" bg="#EDEFEE">
+                                <option value="">Select a time</option>
+                                {Array.from({ length: 11 }, (_, index) => {
+                                    const hour = 17 + Math.floor(index / 2);
+                                    const minute = index % 2 === 0 ? '00' : '30';
+                                    const time = `${hour}:${minute}`;
+                                    return <option key={time} value={time}>{time}</option>;
+                                })}
+
+                            </Field>
                             <ErrorMessage name="time" component="div" style={{ color: 'red' }} />
                         </FormControl>
-                        <FormControl isRequired={true}>
+                        <FormControl m={2} isRequired={true}>
                             <FormLabel>Number of guests</FormLabel>
-                            <Field as={Input} type="number" min="1" max="10" name="guests"></Field>
+                            <Field as={Input} type="number" min="1" max="10" name="guests" bg="#EDEFEE"></Field>
                             <ErrorMessage name="guests" component="div" style={{ color: 'red' }} />
                         </FormControl>
-                        <FormControl isRequired={false}>
+                        <FormControl m={2} isRequired={false}>
                             <FormLabel>Occasion</FormLabel>
-                            <Field as={Select} type="text" name="occasion">
+                            <Field as={Select} type="text" name="occasion" bg="#EDEFEE">
                                 <option value="">Select an occasion</option>
                                 <option value="birthday">Birthday</option>
                                 <option value="anniversary">Anniversary</option>
                             </Field>
-                            {/* <ErrorMessage name="occasion" component="div" style={{ color: 'red' }} /> */}
                         </FormControl>
                         {/* <Box>
                             <label htmlFor="time">Time</label>
@@ -78,7 +86,7 @@ const BookingForm = () => {
                                 <option value="birthday">Birthday</option>
                                 <option value="anniversary">Anniversary</option>
                             </Field>*/}
-                        <Button type="submit" bg='#F4CE14' isLoading={formik.isSubmitting}>Make your Reservation</Button>
+                        <Button m={4} type="submit" bg='#F4CE14' isLoading={formik.isSubmitting}>Make your Reservation</Button>
                     </Form>
                 </Box >
             )}
