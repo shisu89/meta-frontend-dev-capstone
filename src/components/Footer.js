@@ -13,9 +13,9 @@ const Footer = () => {
             </VStack>
             <VStack p={4} spacing={0} align={{ base: "center", md: "start" }}>
                 <Text fontWeight={"bold"}>Contact</Text>
-                <Text>Address</Text>
-                <Text>Phone</Text>
-                <Text>Email</Text>
+                <Text>123 Food Street, Chicago</Text>
+                <Text>+1 123 456 789</Text>
+                <Text>chicago@littlelemon.com</Text>
             </VStack>
             <VStack p={4} spacing={0} align={{ base: "center", md: "start" }}>
                 <Text fontWeight={"bold"}>Social Media</Text>

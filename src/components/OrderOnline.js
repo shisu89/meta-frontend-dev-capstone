@@ -1,11 +1,11 @@
-import { Flex } from '@chakra-ui/react';
+import { Box, Heading } from '@chakra-ui/react';
 
 const OrderOnline = () => {
-    return (
-        <Flex as="main" bg="gray" p={4}>
-        <h1>Order online</h1>
-  
-      </Flex>
-    );
-    }
+  return (
+    <Box as="main" bg="#495E57" p={4}>
+      <Heading color="#EDEFEE">Order Online</Heading>
+      <Heading color="#EDEFEE">Under construction</Heading>
+    </Box>
+  );
+}
 export default OrderOnline;
