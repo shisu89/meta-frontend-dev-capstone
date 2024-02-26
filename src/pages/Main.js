@@ -49,7 +49,7 @@ const Hero = () => {
                 <Heading fontSize={64} color="#F4CE14" fontWeight={"regular"}>Little Lemon</Heading>
                 <Heading fontSize={40} color="#EDEFEE" fontWeight={"regular"}>Chicago</Heading>
                 <Text color="white">We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</Text>
-                <Button as={RouterLink} to="/reservations" bg="#F4CE14">Reserve a Table</Button>
+                <Button as={RouterLink} to="/reservations" bg="#F4CE14" aria-label='Navigate to Table Reservations Page'>Reserve a Table</Button>
             </VStack>
             <Box m={2} width={"300px"} height={{base: "300px", md: "400px"}} borderRadius={16} backgroundImage={'../assets/images/restauranfood.jpg'} backgroundSize={"cover"} backgroundPosition={"center"} position={"relative"} top={{base:10, md: 20}}></Box>
         </Flex>
@@ -61,7 +61,7 @@ const WeeklySpecials = () => {
         <Box as="section" bg="white">
             <Flex mt={12} marginX={16} justifyContent={"space-evenly"} align="center" textAlign="center" flexDirection={{ base: "column", md: "row" }}>
                 <Heading fontSize={64} fontWeight={"regular"}>This weeks specials!</Heading>
-                <Button as={RouterLink} to="/menu" m={4} bg="#F4CE14">Online Menu</Button>
+                <Button as={RouterLink} to="/menu" m={4} bg="#F4CE14" aria-label='Navigate to Online Menu Page'>Online Menu</Button>
             </Flex>
             <Flex bg="white" p={4} flexDirection={{ base: "column", md: "row" }} textAlign={"center"} justifyContent={"center"}>
                 {menuItems.map((item, index) => (

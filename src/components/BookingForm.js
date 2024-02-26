@@ -4,6 +4,12 @@ import { useEffect } from 'react';
 import * as Yup from 'yup';
 import { Box, Heading, Button, FormControl, FormLabel, Input, Select } from '@chakra-ui/react';
 
+export const validationSchema = Yup.object({
+    date: Yup.date().required('Date is required'),
+    time: Yup.string().required('Time is required'),
+    guests: Yup.number().required('Number of guests is required'),
+    occasion: Yup.string().required('Occasion is required'),
+});
 
 const BookingForm = ({ availableTimes, dispatch, onFormSubmit }) => {
 
@@ -14,12 +20,7 @@ const BookingForm = ({ availableTimes, dispatch, onFormSubmit }) => {
             guests: '',
             occasion: '',
         },
-        validationSchema: Yup.object({
-            date: Yup.date().required('Date is required'),
-            time: Yup.string().required('Time is required'),
-            guests: Yup.number().required('Number of guests is required'),
-            occasion: Yup.string().required('Occasion is required'),
-        }),
+        validationSchema: validationSchema,
         onSubmit: (values, { setSubmitting }) => {
             onFormSubmit(values);
             setSubmitting(false);
@@ -41,8 +42,7 @@ const BookingForm = ({ availableTimes, dispatch, onFormSubmit }) => {
                 </Box>
 
                 <FormControl m={2} isRequired={true}>
-                    <FormLabel>Date</FormLabel>
-                    {/* <Field as={Input} type="date" name="date" bg="#EDEFEE" color="#333333"></Field> */}
+                    <FormLabel htmlFor="date">Date</FormLabel>
                     <Input id="date" type="date" name="date" bg="#EDEFEE" color="#333333" value={formik.values.date} onChange={formik.handleChange}
                         onBlur={formik.handleBlur}></Input>
                     {formik.touched.date && formik.errors.date ? (
@@ -50,7 +50,7 @@ const BookingForm = ({ availableTimes, dispatch, onFormSubmit }) => {
                     ) : null}
                 </FormControl>
                 <FormControl m={2} isRequired={true}>
-                    <FormLabel>Time</FormLabel>
+                    <FormLabel htmlFor="time">Time</FormLabel>
                     <Select id="time" type="time" value={formik.values.time} name="time" bg="#EDEFEE" color="#333333" onChange={formik.handleChange}
                         onBlur={formik.handleBlur}>
                         <option value="">Select a time</option>
@@ -63,8 +63,7 @@ const BookingForm = ({ availableTimes, dispatch, onFormSubmit }) => {
                     ) : null}
                 </FormControl>
                 <FormControl m={2} isRequired={true}>
-                    <FormLabel>Number of guests</FormLabel>
-                    {/* <Field as={Input} type="number" min="1" max="10" name="guests" bg="#EDEFEE" color="#333333" placeholder={'How many persons?'}></Field> */}
+                    <FormLabel htmlFor="guests">Number of guests</FormLabel>
                     <Select id='guests' value={formik.values.guests} type="number" name="guests" bg="#EDEFEE" color="#333333" onChange={formik.handleChange}
                         onBlur={formik.handleBlur}>
                         <option value="">Select number of guests</option>
@@ -77,7 +76,7 @@ const BookingForm = ({ availableTimes, dispatch, onFormSubmit }) => {
                     ) : null}
                 </FormControl>
                 <FormControl m={2} isRequired={false}>
-                    <FormLabel>Occasion</FormLabel>
+                    <FormLabel htmlFor="occasion">Occasion</FormLabel>
                     <Select id="occasion" value={formik.values.occasion} type="text" name="occasion" bg="#EDEFEE" color="#333333" onChange={formik.handleChange}
                         onBlur={formik.handleBlur}>
                         <option value="">Select an occasion</option>
@@ -85,7 +84,7 @@ const BookingForm = ({ availableTimes, dispatch, onFormSubmit }) => {
                         <option value="anniversary">Anniversary</option>
                     </Select>
                 </FormControl>
-                <Button m={4} type="submit" bg='#F4CE14' isLoading={formik.isSubmitting}>Make your Reservation</Button>
+                <Button m={4} type="submit" bg='#F4CE14' isLoading={formik.isSubmitting} aria-label='Submit Booking Form '>Make your Reservation</Button>
 
             </Box >
         </form >

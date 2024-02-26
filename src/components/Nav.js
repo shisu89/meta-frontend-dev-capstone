@@ -34,7 +34,7 @@ const BurgerMenu = () => {
     return (
         <>
             <Box position="relative" zIndex={1000} ref={menuRef}>
-                <button onClick={handleToggle}>
+                <button onClick={handleToggle} aria-label='Open Menu'>
                     <Image src="./assets/images/icons/icon_hamburger_menu.svg"></Image>
                 </button>
                 {isOpen && (
