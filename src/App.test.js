@@ -1,19 +1,17 @@
 import { render, screen } from "@testing-library/react";
-import { BookingForm } from './components/Reservations';
-import MyContext from "./components/MyContext";
-import { bookingSlots } from "./components/constants";
-import { initializeTimes } from "./App";
+import BookingForm from "./components/BookingForm";
+import { bookingSlots } from "./constants/constants";
+import { initializeTimes, updateTimes } from "./App";
 
 const mockContextValue = {
   availableTimes: [],
-  dispatch: () => {}
+  dispatch: () => { },
+  onFormSubmit: () => { },
 };
 
 test('Renders the BookingForm heading', () => {
   render(
-    <MyContext.Provider value={mockContextValue}>
-      <BookingForm />
-    </MyContext.Provider>
+    <BookingForm availableTimes={mockContextValue.availableTimes} dispatch={mockContextValue.dispatch} onFormSubmit={mockContextValue.onFormSubmit}></BookingForm>
   );
   const headingElement = screen.getByText(/book now/i);
   expect(headingElement).toBeInTheDocument();
@@ -23,4 +21,11 @@ test('Renders the BookingForm heading', () => {
 test('initializeTimes returns the correct expected value', () => {
   const result = initializeTimes();
   expect(result).toEqual(bookingSlots);
+})
+
+test('check if updateTimes returns the same value as the input', () => {
+  const state = bookingSlots;
+  const action = { type: 'SET_TIMES', payload: '2022-12-12' };
+  const result = updateTimes(state, action);
+  expect(result).toEqual(state);
 })
