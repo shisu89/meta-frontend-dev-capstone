@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Box, Image, Flex, Link } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import { useMediaQuery } from '@chakra-ui/react';
@@ -7,7 +8,8 @@ import { useMediaQuery } from '@chakra-ui/react';
 const pages = ['Home', 'About', 'Menu', 'Reservations', 'Order Online', 'Login'];
 
 const BurgerMenu = () => {
-    const [isOpen, setIsOpen] = React.useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+    const menuRef = useRef()
 
     const handleToggle = () => {
         setIsOpen(!isOpen);
@@ -17,9 +19,21 @@ const BurgerMenu = () => {
         setIsOpen(false);
     };
 
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (menuRef.current && !menuRef.current.contains(event.target)) {
+                closeMenu();
+            }
+        }
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [menuRef]);
+
     return (
         <>
-            <Box position="relative" zIndex={1000}> {/* Add this wrapper */}
+            <Box position="relative" zIndex={1000} ref={menuRef}>
                 <button onClick={handleToggle}>
                     <Image src="./assets/images/icons/icon_hamburger_menu.svg"></Image>
                 </button>
