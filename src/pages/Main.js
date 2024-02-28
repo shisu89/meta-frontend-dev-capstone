@@ -8,7 +8,7 @@ const MenuItemCard = ({ title, description, price, image }) => {
         <Flex m={4} p={4} flexDirection={'column'} textAlign={"center"} position={"relative"}>
             <VStack spacing={0}>
                 <Box h="200px" w="260px" borderTopRadius="16" mb={0} backgroundImage={image} backgroundSize="cover" backgroundPosition="center" />
-                <Box h="280px" w="260px" bg="#EDEFEE" p={4}>
+                <Box h="280px" w="260px" bg="#d5d7d6" p={4}>
                     <HStack justifyContent={"space-between"} mb={6}>
                         <Heading fontWeight={"medium"} fontSize={24}>{title}</Heading>
                         <Text color="#EE9972">{price}</Text>
@@ -63,7 +63,7 @@ const WeeklySpecials = () => {
                 <Heading fontSize={64} fontWeight={"regular"}>This weeks specials!</Heading>
                 <Button as={RouterLink} to="/menu" m={4} bg="#F4CE14" aria-label='Navigate to Online Menu Page'>Online Menu</Button>
             </Flex>
-            <Flex bg="white" p={4} flexDirection={{ base: "column", md: "row" }} textAlign={"center"} justifyContent={"center"}>
+            <Flex bg="#EDEFEE" p={4} flexDirection={{ base: "column", md: "row" }} textAlign={"center"} justifyContent={"center"}>
                 {menuItems.map((item, index) => (
                     <MenuItemCard
                         key={index}
