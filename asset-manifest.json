@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/meta-frontend-dev-capstone/static/js/main.0955a806.js",
+    "main.js": "/meta-frontend-dev-capstone/static/js/main.c070bdea.js",
     "static/js/453.f0e5cfda.chunk.js": "/meta-frontend-dev-capstone/static/js/453.f0e5cfda.chunk.js",
     "index.html": "/meta-frontend-dev-capstone/index.html",
-    "main.0955a806.js.map": "/meta-frontend-dev-capstone/static/js/main.0955a806.js.map",
+    "main.c070bdea.js.map": "/meta-frontend-dev-capstone/static/js/main.c070bdea.js.map",
     "453.f0e5cfda.chunk.js.map": "/meta-frontend-dev-capstone/static/js/453.f0e5cfda.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.0955a806.js"
+    "static/js/main.c070bdea.js"
   ]
 }
