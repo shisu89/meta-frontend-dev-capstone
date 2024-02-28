@@ -51,7 +51,7 @@ const Hero = () => {
                 <Text color="white">We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</Text>
                 <Button as={RouterLink} to="/reservations" bg="#F4CE14" aria-label='Navigate to Table Reservations Page'>Reserve a Table</Button>
             </VStack>
-            <Box m={2} width={"300px"} height={{base: "300px", md: "400px"}} borderRadius={16} backgroundImage={'../assets/images/restauranfood.jpg'} backgroundSize={"cover"} backgroundPosition={"center"} position={"relative"} top={{base:10, md: 20}}></Box>
+            <Box m={2} width={"300px"} height={{base: "300px", md: "400px"}} borderRadius={16} backgroundImage={'./assets/images/restauranfood.jpg'} backgroundSize={"cover"} backgroundPosition={"center"} position={"relative"} top={{base:10, md: 20}}></Box>
         </Flex>
     )
 }
@@ -109,8 +109,8 @@ const ChicagoBranch = () => {
                 <Heading fontSize={40} color="#EDEFEE" fontWeight={"regular"}>Chicago</Heading>
                 <Text color="#EDEFEE">Welcome to Little Lemon, our Chicago branch of the restaurant chain. We are proud to serve the community with delicious and healthy food options. Our journey began in 2010 when our founder, John Smith, had a vision to create a restaurant that combines fresh ingredients with unique flavors. Since then, we have been dedicated to providing a memorable dining experience for our customers. Whether you're looking for a quick lunch or a cozy dinner, Little Lemon Chicago is the perfect place to satisfy your cravings. Come and taste the flavors that have made us a local favorite!</Text>
             </VStack>
-            <Box mt={{base:8, md: 0}} width={"300px"} height={"350px"} borderRadius={16} backgroundImage={'../assets/images/restaurant.jpg'} backgroundSize={"cover"} backgroundPosition={"center"} transform={{md: "translate(10%, 0%)"}}></Box>
-            <Box mt={{base:4, md:0}} mb={{base:0, md: 16}} width={"300px"} height={"350px"} borderRadius={16} backgroundImage={'../assets/images/restaurant chef B.jpg'} backgroundSize={"cover"} backgroundPosition={"center"} transform={{md: "translate(-80%, 20%)"}}></Box>
+            <Box mt={{base:8, md: 0}} width={"300px"} height={"350px"} borderRadius={16} backgroundImage={'./assets/images/restaurant.jpg'} backgroundSize={"cover"} backgroundPosition={"center"} transform={{md: "translate(10%, 0%)"}}></Box>
+            <Box mt={{base:4, md:0}} mb={{base:0, md: 16}} width={"300px"} height={"350px"} borderRadius={16} backgroundImage={'./assets/images/restaurant chef B.jpg'} backgroundSize={"cover"} backgroundPosition={"center"} transform={{md: "translate(-80%, 20%)"}}></Box>
         </Flex>
     )
 }
